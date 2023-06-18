@@ -11,7 +11,6 @@ import base64
 import re
 from yt_dlp import YoutubeDL
 root = '/content'
-os.environ["_BARD_API_KEY"]="XQhE09mZ6oKiTJ5A32eJ_QDQP3xqbwqMnX0LIN50dLKTrK4iPI9SJiWPsqaFLFJvlQOzlQ."
 #url抽出モジュール
 def extract_urls(text):
     pattern = r"https://[a-zA-Z0-9./?=_-]+"

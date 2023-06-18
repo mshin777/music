@@ -10,7 +10,7 @@ import streamlit.components.v1 as stc
 import base64
 import re
 from yt_dlp import YoutubeDL
-root = '/content/'
+root = '/tmp/content/'
 #url抽出モジュール
 def extract_urls(text):
     pattern = r"https://[a-zA-Z0-9./?=_-]+"

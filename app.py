@@ -1,7 +1,6 @@
 import streamlit as st
 from pydub import AudioSegment
 from pydub.playback import play
-from IPython.display import Audio, display
 import random
 import time
 from bardapi import Bard

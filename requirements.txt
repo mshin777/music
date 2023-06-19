@@ -2,3 +2,4 @@ streamlit
 ffmpeg-python
 bardapi
 yt-dlp
+pydub

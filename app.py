@@ -46,7 +46,7 @@ def dl(n):
   # ランダムなトリミング範囲の生成
   start_time = random.randint(0, 5*60)
   end_time = start_time + random.randint(10 * 60* 1000, 20 *60* 1000)  # 10分から20分の範囲でトリミング
-  cashTime[(n+2)%n]=end_time-start_time
+  cashTime[(n+2)%3]=end_time-start_time
   # トリミング
   trimmed_audio = audio[start_time:end_time]
   # フェードインとフェードアウトの適用

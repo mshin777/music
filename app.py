@@ -17,9 +17,9 @@ def extract_urls(text):
     urls = re.findall(pattern, text)
     return urls
 #ここからコード
-themes=["https://www.youtube.com/watch?v=-geI_lMECjg","https://www.youtube.com/watch?v=dQw4w9WgXcQ","https://www.youtube.com/watch?v=dQw4w9WgXcQ","勉強に集中できる音楽","ゾーンに入る"]
+themes=["https://www.youtube.com/watch?v=-geI_lMECjg","https://www.youtube.com/watch?v=e97Whvp0AXY","https://www.youtube.com/watch?v=LqizqoCtYBc","勉強に集中できる音楽","ゾーンに入る"]
 #startfrom=random.randint(0,len(themes))
-startfrom=0
+startfrom=1
 cashTime=[0,0,0]
 #ダウンロードとトリミング
 def dl(n):
@@ -52,7 +52,6 @@ def dl(n):
   # フェードインとフェードアウトの適用
   trimmed_audio = trimmed_audio.fade_in(fade_duration).fade_out(fade_duration)
   #cashに保存
-  st.write("strat exporting mp3")
   trimmed_audio.export(root +"cash"+str((n+2)%3)+".mp3", format='mp3')
   os.remove(root +"dl"+str(n)+".mp3")
 
@@ -82,7 +81,7 @@ def trash(n):
 
 def bach(n):
   # ダウンロード処理を別スレッドで実行
-  download_thread = threading.Thread(target=dl, args=(n))
+  download_thread = threading.Thread(target=dl, args=(n,))
   download_thread.start()
   playm(n)
   trash(n)

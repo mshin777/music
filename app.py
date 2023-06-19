@@ -1,7 +1,6 @@
 import streamlit as st
 from pydub import AudioSegment
 from pydub.playback import play
-import ffmpeg
 import random
 import time
 from bardapi import Bard
@@ -49,18 +48,12 @@ def dl(n):
   end_time = start_time + random.randint(10 * 60* 1000, 20 *60* 1000)  # 10分から20分の範囲でトリミング
   cashTime[(n+2)%n]=end_time-start_time
   # トリミング
-  #trimmed_audio = audio[start_time:end_time]
+  trimmed_audio = audio[start_time:end_time]
   # フェードインとフェードアウトの適用
-  #trimmed_audio = trimmed_audio.fade_in(fade_duration).fade_out(fade_duration)
+  trimmed_audio = trimmed_audio.fade_in(fade_duration).fade_out(fade_duration)
   #cashに保存
   st.write("strat exporting mp3")
-  #trimmed_audio.export(root +"cash"+str((n+2)%3)+".mp3", format='mp3')
-  # ffmpeg-pythonを使用してトリミングとフェード効果を適用するフィルターグラフを作成します
-  trim_filter = f'trim=start={start_time}:end={end_time}'
-  fade_in_filter = f'afade=t=in:ss=0:d={fade_duration}'
-  fade_out_filter = f'afade=t=out:st={end_time}:d={fade_duration}'
-  filter_graph = f'{trim_filter},{fade_in_filter},{fade_out_filter}'
-  ffmpeg.input(root+filename).filter(filter_graph).output(root +"cash"+str((n+2)%3)+".mp3").run()
+  trimmed_audio.export(root +"cash"+str((n+2)%3)+".mp3", format='mp3')
   os.remove(root +"dl"+str(n)+".mp3")
 
 def playm(n):

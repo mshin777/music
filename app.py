@@ -97,7 +97,7 @@ def main():
   with st.spinner("2曲目をダウンロード中"):
    dl(1)
   for i in range(10):
-    with st.spinner(f"{n+2}曲目を再生中"):
+    with st.spinner(f"{i+2}曲目を再生中"):
      bach(i+2)
 
 if __name__ == "__main__":

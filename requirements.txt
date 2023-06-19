@@ -1,6 +1,4 @@
 streamlit
-pydub
+ffmpeg-python
 bardapi
 yt-dlp
-ffmpeg
-ffprobe

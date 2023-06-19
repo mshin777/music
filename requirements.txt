@@ -3,3 +3,4 @@ pydub
 bardapi
 yt-dlp
 ffmpeg
+ffprobe

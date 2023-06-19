@@ -52,6 +52,7 @@ def dl(n):
   # フェードインとフェードアウトの適用
   trimmed_audio = trimmed_audio.fade_in(fade_duration).fade_out(fade_duration)
   #cashに保存
+  st.write("strat exporting mp3")
   trimmed_audio.export(root +"cash"+str((n+2)%3)+".mp3", format='mp3')
   os.remove(root +"dl"+str(n)+".mp3")
 

@@ -1,5 +1,5 @@
 streamlit
-ffmpeg-python
+ffmpeg
 bardapi
 yt-dlp
 pydub
